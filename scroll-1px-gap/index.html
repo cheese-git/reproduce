@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+  <title>scroll-1px-gap</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+    }
+
+    .container {
+      height: 116vw;
+      background-color: white;
+      overflow-y: scroll;
+    }
+
+    .content {
+      height: 200px;
+      background-color: blue;
+      margin-top: 16px;
+    }
+
+    .tool {
+      position: fixed;
+      width: 100%;
+      bottom: 32px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">content 1</div>
+    <div class="content">content 2</div>
+    <div class="content">content 3</div>
+    <div class="content">content 4</div>
+  </div>
+  <div class="tool">
+    <button onclick="handleMinus()">-</button>
+    <input value="116vw" class="input" style="width: 48px" readonly /></span>
+    <button onclick="handlePlus()">+</button>
+  </div>
+  <script>
+    const inputEl = document.querySelector('input');
+    const containerEl = document.querySelector('.container');
+
+    function handlePlus(){
+      var value = parseInt(inputEl.value);
+      inputEl.value = value + 1 + 'vw';
+      containerEl.style.height = value + 1 + 'vw';
+    }
+
+    function handleMinus(){
+      var value = parseInt(inputEl.value);
+      inputEl.value = value - 1 + 'vw';
+      containerEl.style.height = value - 1 + 'vw';
+    }
+  </script>
+</body>
+
+</html>
