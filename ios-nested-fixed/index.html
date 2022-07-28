@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IOS nested fixed</title>
+  <style>
+    body {
+      color: white;
+      margin: 0;
+    }
+
+    .parent {
+      position: fixed;
+      transform: none !important;
+      overflow-y: scroll;
+    }
+
+    .child {
+      width: 120px;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="display" style="color: black"></div>
+  <div style="background-color: green; height: 300px; width: 300px; overscroll-behavior-y: contain;" class="parent">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt saepe minus doloremque labore. Sit, laboriosam suscipit? Accusamus veniam incidunt eveniet corrupti nulla facilis. Accusamus optio molestiae neque, dicta totam impedit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolorem soluta. Deserunt illum corrupti neque commodi necessitatibus doloremque odit numquam atque animi quae. Quam dolores facere dicta explicabo iusto tenetur?
+    <div style="position: fixed; background-color: red; height: 500px;" onclick="handleChildClick()" class="child">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste commodi exercitationem ipsa rerum voluptate animi natus nulla doloremque magnam accusantium itaque placeat quae, aliquam id minus dolor omnis? Rerum, suscipit.
+    </div>
+  </div>
+  <script>
+    let count = 0;
+    function handleChildClick(){
+      const display = document.getElementById('display');
+      display.innerHTML = 'child clicked ' + ++count + ' times';
+    }
+  </script>
+</body>
+</html>
